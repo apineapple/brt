@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+  @font-face {
+  font-family: title;
+  src: url("Lucida Blackletter Regular.ttf");
+}
+		body{
+			 margin: 0;
+		}
+.topnav {
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  background-color: #000;
+    text-align: center;
+    top: 0;
+    padding-top: 13px;
+   /* margin-top: 10px;*/
+padding-right: 13px;
+padding-bottom: 3px;
+padding-left: 13px;
+  z-index:1000;
+  border-bottom: #cba135 solid 5px;
+}
+
+.topnav a {
+	display: inline-flex;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 8px;
+margin-bottom: 10px;
+margin-top: 2px;
+margin-left: -12px;
+padding: 2px 12px;
+border-radius: 0px;
+font-weight: 900;
+font-family: 'Helvetica Bold', sans-serif;
+color: #525252;
+font-size: 18px;
+text-decoration: none;
+text-transform: uppercase;
+}
+
+.topnav a:hover {
+  color: #cba135;
+}
+/*.header{
+	background-color: #6f6327;
+	width: 100%;
+}
+.headerimg{
+width: 50%;
+padding: auto;
+padding-top: 100px;
+padding-bottom: 100px;
+display:block;
+  margin-left:auto;
+  margin-right:auto;
+  height: auto;
+}*/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.text-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 8vw;
+  font-family: title;
+  font-weight: 900;
+  background-color: #000;
+  color: darkgrey;
+  display: block;
+  padding: .5em;
+  padding-bottom: 50px;
+}
+
+span {
+    display: block;
+    transform: rotate(90deg);
+    margin-top: .25em;
+  }
+  .ParallaxVideo{ 
+    height: 300px;
+    padding-bottom: 50px;
+    padding-top: 50px; 
+}
+.ParallaxVideo video{ 
+    min-width: 100%;
+    position: fixed;
+    top:0;
+    z-index: -999;
+}
+.ParallaxVideo h1 {
+  color: #fff;
+  font-size: 76px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2{
+  font-size: 60px;
+  font-family: title;
+  font-weight: 900;
+  padding: .5em;
+  text-indent: 50px;
+  background-color: transparent;
+  color: #525252;
+}
+:is(.overview, .history){
+  width:100%; border-top: 60px #cba135 solid;
+  background-color: black; color: white;
+  /*  opacity: 0.9;*/
+}
+.history{
+  height: auto;
+}
+.overview{
+  height: 1000px;
+}
+:is(.overview, .history) p{
+ width: 600px;
+padding-left: 150px;
+font-size: 25px;
+height: 600px;
+}
+.artist{
+  width:100%; border-top: 60px #cba135 solid; height: auto;
+ color: white;
+  margin-bottom: -50px;
+}
+.atitlel{
+  width: 100%;
+  background-color: #cba135;
+  height: 150px;
+  display: inline;
+}
+h3{
+font-family: 'Helvetica Bold', sans-serif;
+text-indent: 100px;
+font-size: 100px;
+margin-top: 25px;
+display: inline-block;
+-webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+h3:not(.atitlel){
+color:  #cba135;
+}
+h3:not(.atitlel):hover{
+  color: #525252;
+  cursor: pointer;
+}
+.atitlel{
+    color: #525252 !important;
+}
+.atitlel:hover{
+color:  #cba135;
+}
+.image{
+transition: all .2s ease-in-out; 
+}
+.image:hover{
+transform: scale(1.1);
+filter: invert(100%);
+}
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  color: black;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -12px;
+  background-color: black;
+  border-radius: 50%;
+  top: 15px;
+  z-index: 1;
+  vertical-align: center;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -12px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  height: 500px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+.content p{
+  margin-left: -150px;
+  font-size: 20px;
+}
+
+#thebigimage {
+    background-image:url("https://static.wikia.nocookie.net/earlsweatshirt/images/8/8d/17353211_1584288171599682_3059272509797922400_n.jpg/revision/latest?cb=20181110022739");
+    height:548px;
+    margin-left:auto;
+    margin-right:auto;
+    position:relative; /* and this has to be relative */
+    width:500px;
+    top: -800px;
+    left: 300px;
+    z-index: 999;
+}
+	</style>
+</head>
+<body>
+<div class="ParallaxVideo">
+  <div class="topnav">
+  <a href="#overview">overview</a>
+  <a href="#history">history</a>
+  <a href="#artist">artists</a>
+  <a href="#conclusion">conclusion</a>
+</div>
+  <video autoplay muted loop>
+  <source src="mike.mp4" type="video/mp4">
+  </video>
+  <h1 style="color: #525252 !important; -webkit-text-stroke-width: .01px;
+  -webkit-text-stroke-color: #cba135;">Stained Sweatpants Rap</h1>
+</div>
+
+<div class="title" style="background-color: black; margin-left: auto; 
+margin-right: 0; width: 90%; text-align: right; font-size: 20px; color: #cba135; padding-top:40px; padding-bottom: 40px; padding-right:50px; border-left: #cba135 solid 5px; text-transform: uppercase;">an exploration of a contemporary movement that builds on black radical tradition</div>
+<div class="container">
+  <!-- code here -->
+<img class="headerimg" style="border-bottom: #cba135 solid 5px; border-right: #cba135 solid 5px;" src="https://pbs.twimg.com/media/EeuKwMpWsAElJX1?format=jpg&name=medium">
+</div>
+<div id="overview" class="overview" style="margin-top: 90px;">
+  <h2>an overview</h2>
+  <p>Lorem ipsum dolor sit amet, ex has alia recusabo, at per falli equidem, agam deserunt vituperata sea ei. Mei corpora placerat ad. Ne magna dignissim cum, mei putent adolescens neglegentur ut. Duo debet convenire laboramus et. An audire accusam vim. Eos veniam phaedrum no, solet detracto id est. Vix te wisi oblique menandri.</p>
+<div id="thebigimage">
+<div style="  background-image:url('https://static.wikia.nocookie.net/earlsweatshirt/images/8/8d/17353211_1584288171599682_3059272509797922400_n.jpg/revision/latest?cb=20181110022739');
+    height:548px;
+    margin-left:auto;
+    margin-right:auto;
+    position:absolute; /* and this has to be relative */
+    width:500px;
+    top: 15px;
+    left: 15px;
+    z-index: 997; filter: invert(100%);"></div>
+<div style="  background-image:url('https://static.wikia.nocookie.net/earlsweatshirt/images/8/8d/17353211_1584288171599682_3059272509797922400_n.jpg/revision/latest?cb=20181110022739');
+    height:548px;
+    margin-left:auto;
+    margin-right:auto;
+    position:absolute; /* and this has to be relative */
+    width:500px;
+    top: 40px;
+    left: 40px;
+    z-index: 997; filter: invert(70%);"></div>
+<div style="  background-image:url('https://e.snmc.io/i/600/s/af535f343a455de784a1a809faf9af63/7540893');
+    height: 70px;
+    left:350px; /* play around with this */
+    position:absolute;
+    top:90px; /* and play around with this */
+    width:280px;
+    z-index: 998;"><div style="  background-image:url('http://cdn.viewing.nyc/assets/media/7d44939abf74071096bf48860489e521/elements/3ce7468c266c8530fe6b20b0f3464aff/0b67bf1a-af0b-404a-b8db-d712b0892f41.jpg');
+    height: 300px;
+    left:-400px; /* play around with this */
+    position:absolute;
+    bottom:-500px; /* and play around with this */
+    width:200px;
+    z-index: 998;"></div>
+</div>
+</div>
+<div id="history" class="history" style="margin-top:-500px;">
+  <h2 style="text-align: right; padding-right: 100px;">a timeline</h2>
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>2017</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2016</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2015</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2012</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2011</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2007</h2>
+      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+    </div>
+  </div>
+</div>
+
+  </div>
+<div id="artist" class="artist" style="margin-top:0px;">
+  <h2 style="text-align: center;">artists</h2>
+  </div>
+  <!-- get rid of atitlel to see fun stuff -->
+    <div style="float: left;">
+  <div class="atitlel"><h3>MAVI</h3></div><img class="image" style="margin-top: 150px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/4da6b8cb326066d38716819929be3e79.828x828x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://images.genius.com/c823eb08692d46c77898ac00b0cff054.1000x1000x1.jpg"><div class="atitlel"><h3 style="direction: rtl;">AKAI SOLO</h3></div>
+  </div>
+      <div style="float: left;">
+  <div class="atitlel"><h3>EARL</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/af5a80cb485050a3ef6e70b12703a0b2.1000x1000x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://f4.bcbits.com/img/a0747524158_10.jpg"><div class="atitlel"><h3 style="direction: rtl;">ADÉ HAKIM</h3></div>
+  </div>
+     <div style="float: left;">
+  <div class="atitlel"><h3>NAVY BLUE</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/3e43b7df57708f0541a0c004616cf1b5.900x900x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://images.genius.com/f9d92ef8da41284db8fd1718c79c38de.700x700x1.jpg"><div class="atitlel"><h3 style="direction: rtl;">PINK SIIFU</h3></div>
+  </div>
+     <div style="float: left;">
+  <div class="atitlel"><h3>SOTC</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/123aeeb4cb0b6511ba86e1be59c1ba8a.800x800x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://images.genius.com/b5ca07aa034daa8337fd379db3e20b63.474x474x1.jpg"><div class="atitlel"><h3 style="direction: rtl;">CALEB GILES</h3></div>
+  </div>
+      <div style="float: left;">
+  <div class="atitlel"><h3>REDVEIL</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/0be7be368e340afc3f093540d9744cc7.1000x1000x1.png">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://images.genius.com/e3056d2f42b2e0a5589bbb3e2e8bc288.1000x1000x1.png"><div class="atitlel"><h3 style="direction: rtl;">MEDHANE</h3></div>
+  </div>
+     <div style="float: left;">
+  <div class="atitlel"><h3>SLAUSON</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/12abf92bbba259fa2325abd29d083a89.1000x1000x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://e.snmc.io/i/1200/s/afb9f0c8613726962fbc8804a1138c8b/7618043"><div class="atitlel"><h3 style="direction: rtl;">JODI10K</h3></div>
+  </div>
+     <div style="float: left;">
+  <div class="atitlel"><h3>KING CARTER</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://f4.bcbits.com/img/a3815541792_5.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="https://images.genius.com/ea2aa88e8844e5bffe36686e2fa636f8.1000x1000x1.jpg"><div class="atitlel"><h3 style="direction: rtl;">KEIYA</h3></div>
+  </div>
+       <div style="float: left;">
+  <div class="atitlel"><h3>MAXO</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/f89c34b607aebff711afedacb7af5ad5.1000x1000x1.jpg">
+</div>
+  <div style="float: right;">
+    <img class="image" style="margin-top: 50px; margin-right: 50px; margin-bottom: 20px; height: 500px; display: inline;" src="http://images.genius.com/dfe9fc3bfad39d6ab66538d22a3ed8d7.1000x1000x1.jpg"><div class="atitlel"><h3 style="direction: rtl;">MIKE</h3></div>
+  </div>
+       <div style="float: left;">
+  <div class="atitlel"><h3>BLACK NOI$E</h3></div><img class="image" style="margin-top: 80px; margin-bottom: 20px; margin-left: 50px; height: 500px; display: inline;" src="https://images.genius.com/7510cc456d78c8d842a3cc6e68814ca8.1000x1000x1.jpg">
+</div>
+<div id="conclusion" class="overview" style="margin-top:12200px;">
+  <h2>the conclusion</h2>
+  <p>Lorem ipsum dolor sit amet, ex has alia recusabo, at per falli equidem, agam deserunt vituperata sea ei. Mei corpora placerat ad. Ne magna dignissim cum, mei putent adolescens neglegentur ut. Duo debet convenire laboramus et. An audire accusam vim. Eos veniam phaedrum no, solet detracto id est. Vix te wisi oblique menandri.</p>
+</div>
+  <div style="background-color:black; color: #cba135; height: 50px; width: 100%; text-align: left; font-size: 50px; margin-top:50px;"><p>&copy; Arjun and Ben Inc. + Bibliography</div>
+</body>
+</html>
